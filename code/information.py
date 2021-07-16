@@ -9,3 +9,6 @@ try:
         couriers_list = [courier.strip() for courier in couriers_file.readlines()]
 except Exception as e:
     print("File 'couriers.txt' could not be opened" + str(e))
+
+Orders_list = []
+Order_status_list = ['preparing','Out for delivery' ]

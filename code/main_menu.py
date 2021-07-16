@@ -1,15 +1,17 @@
 import products_menu
 import couriers_menu
 import information
+import Orders_menu
 
 def main_menu():
     '''Runs the main menu in the UI'''
     main_menu_input = input('''Please select from the following options:
     0: Exit 
     1: Products Menu
-    2: Couriers Menu\n''')
+    2: Couriers Menu
+    3: Orders Menu\n''')
     
-    valid_main_inputs = [str(i) for i in range(3)]
+    valid_main_inputs = [str(i) for i in range(4)]
     
     if main_menu_input not in valid_main_inputs:
         print('Sorry that option was not recognized')
@@ -39,3 +41,6 @@ def main_menu():
         
     elif main_menu_input == 2:
         couriers_menu.couriers_menu()
+        
+    elif main_menu_input == 3:
+        Orders_menu.Orders_menu()
