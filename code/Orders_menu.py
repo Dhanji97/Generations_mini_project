@@ -93,7 +93,7 @@ def update_Order_status():
         return update_Order_status()
     elif Order_index == 'C':
         return Orders_menu()
-    
+    Order_index = int(Order_index)
     order_dict_update = information.Orders_list[Order_index]
     
     for i, status in enumerate(information.Order_status_list):
@@ -109,11 +109,11 @@ def update_Order_status():
         return update_Order_status()
     elif status_index == 'C':
         return Orders_menu()
-    
+    status_index = int(status_index)
     updated_status = information.Order_status_list[status_index]
     order_dict_update['status'] = updated_status
-    print(f'Order\s status successfully updated to {updated_status}')
-    return Orders_menu
+    print(f'Order\'s status successfully updated to {updated_status}')
+    return Orders_menu()
 
 # def update_Order():
 #     '''updates the name of an existing Order in the Order list'''
