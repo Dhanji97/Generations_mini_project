@@ -13,8 +13,15 @@ except Exception as e:
 Orders_list = [{
                     'Customer name': 'Dhanji',
                     'Customer address': '1, AB1 2CD',
-                    'Customer phone number': '07123456789',
+                    'Customer phone number': '07147258369',
                     'Courier': 1,
                     'Status': 'preparing'
+                    },
+                {
+                    'Customer name': 'Abbas',
+                    'Customer address': '2, EF3 4GH',
+                    'Customer phone number': '07963852741',
+                    'Courier': 1,
+                    'Status': 'Out for delivery'
                     }]
-Order_status_list = ['Preparing', 'Out for divlivery']
+Order_status_list = ['Preparing', 'Out for delivery']
