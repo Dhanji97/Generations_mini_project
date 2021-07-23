@@ -1,5 +1,5 @@
-import main_menu
-import information
+from main_menu import main_menu
+from saved_information import information
 
 def products_menu():
     '''Runs the product menu in the UI'''

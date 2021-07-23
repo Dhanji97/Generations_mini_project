@@ -1,7 +1,7 @@
-import products_menu
-import couriers_menu
-import information
-import Orders_menu
+from products_menu import products_menu
+from couriers_menu import couriers_menu
+from saved_information import information
+from orders_menu import Orders_menu
 
 def main_menu():
     '''Runs the main menu in the UI'''
