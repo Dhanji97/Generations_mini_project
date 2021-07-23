@@ -1,3 +1,5 @@
+import csv
+
 try:
     with open('products.txt', 'r') as products_file:      
         products_list = [product.strip() for product in products_file.readlines()]
@@ -25,3 +27,30 @@ Orders_list = [{
                     'Status': 'Out for delivery'
                     }]
 Order_status_list = ['Preparing', 'Out for delivery']
+
+try:
+    with open('source/saved_information/products.csv', 'r') as products_csv:
+        list_of_products_dicts = []
+        reader = csv.DictReader(products_csv, delimiter=',')
+        for row in reader:
+            list_of_products_dicts.append(row)
+except Exception as e:
+    print(e)
+
+try:
+    with open('source/saved_information/couriers.csv', 'r') as couriers_csv:
+        list_of_couriers_dicts = []
+        reader = csv.DictReader(couriers_csv, delimiter=',')
+        for row in reader:
+            list_of_couriers_dicts.append(row)
+except Exception as e:
+    print(e)
+
+try:
+    with open('source/saved_information/orders.csv', 'r') as orders_csv:
+        list_of_orders_dicts = []
+        reader = csv.DictReader(orders_csv, delimiter=',')
+        for row in reader:
+            list_of_orders_dicts.append(row)
+except Exception as e:
+    print(e)
