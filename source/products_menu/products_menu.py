@@ -2,6 +2,7 @@ from main_menu import main_menu
 from saved_information import information
 from products_menu.new_product import create_new_product
 from products_menu.update_product import update_product
+from products_menu.delete_product import delete_product
 
 def products_menu():
     '''Runs the product menu in the UI'''
@@ -32,29 +33,9 @@ def products_menu():
         products_menu()
     
     elif products_menu_input == 3:
-        update_product()
+        update_product(information.list_of_products_dicts)
+        products_menu()
     
     elif products_menu_input == 4:
-        delete_product()
-
-
-def delete_product():
-    '''deletes a product in the products list'''
-    for i, product in enumerate(information.products_list):
-        print(i, product)
-    
-    valid_delete_inputs = [str(i) for i in range(len(information.products_list))]
-    # C added to valid inputs to allow user to cancel selection and return to previous menu
-    valid_delete_inputs.append('C') 
-    delete_index = input('select product number to delete or C to cancel: ')
-    if delete_index not in valid_delete_inputs:
-        print('Sorry that option was not recognized')
-        return delete_product()
-    elif delete_index == 'C':
-        return products_menu()
-    
-    delete_index = int(delete_index)
-    delete_item = information.products_list[delete_index]
-    information.products_list.pop(delete_index)
-    print(f'Product "{delete_item}" was removed from products list.')
-    return products_menu()
+        delete_product(information.list_of_products_dicts)
+        products_menu()
