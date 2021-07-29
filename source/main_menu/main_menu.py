@@ -2,7 +2,7 @@ from products_menu import products_menu
 from couriers_menu import couriers_menu
 from saved_information import information
 from orders_menu import Orders_menu
-import save_to_csv
+from main_menu import save_to_csv
 
 def main_menu():
     '''Runs the main menu in the UI'''
@@ -21,7 +21,7 @@ def main_menu():
     main_menu_input = int(main_menu_input)
     
     if main_menu_input == 0:
-        save_to_csv.save_csv(information.list_of_products_dicts,'/source/saved_information/products.csv', 'Prodcuts saved successfully')
+        save_to_csv.save_csv(information.list_of_products_dicts,'source/saved_information/products.csv', 'Prodcuts saved successfully')
         
         try:
             with open('couriers.txt', 'w') as couriers_file:

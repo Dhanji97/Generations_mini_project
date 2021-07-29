@@ -6,4 +6,3 @@ from orders_menu import Orders_menu
 #Required to run the app and avoid circular imports 
 
 main_menu.main_menu()
-

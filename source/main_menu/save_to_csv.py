@@ -1,6 +1,7 @@
 import csv
 
 def save_csv(list_of_dict, file_name, print_message):
+    '''saves a list of dictionaries to a csv file'''
     field_names = list_of_dict[0].keys()
     try:
         with open(file_name,'w', newline="") as file:
