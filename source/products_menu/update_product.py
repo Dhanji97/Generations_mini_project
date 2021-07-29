@@ -15,7 +15,7 @@ def update_product(list_dict):
     product_index = int(product_index)
     print(list_dict[product_index])
     
-    updated_name = input('Please enter updated product name or press enter to skip:' )
+    updated_name = input('Please enter updated product name or press enter to skip: ')
     if updated_name != '':
         list_dict[product_index]['name'] = updated_name
     
