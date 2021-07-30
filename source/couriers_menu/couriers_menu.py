@@ -1,5 +1,6 @@
 from main_menu import main_menu
 from saved_information import information
+from couriers_menu.new_courier import new_courier
 
 
 def couriers_menu():
@@ -15,7 +16,7 @@ def couriers_menu():
     
     if couriers_menu_input not in valid_courier_inputs:
         print('Sorry that option was not recognized')
-        return couriers_menu()
+        couriers_menu()
     
     couriers_menu_input = int(couriers_menu_input)
     
@@ -23,11 +24,12 @@ def couriers_menu():
         main_menu.main_menu()
 
     elif couriers_menu_input == 1:
-        print(information.couriers_list)
+        print(information.list_of_couriers_dicts)
         couriers_menu()
 
     elif couriers_menu_input == 2:
-        new_courier()
+        new_courier(information.list_of_couriers_dicts)
+        couriers_menu()
     
     elif couriers_menu_input == 3:
         update_courier()
@@ -36,17 +38,8 @@ def couriers_menu():
         delete_courier()
     else:
         print('Sorry that option was not recognized')
-        return couriers_menu()
+        couriers_menu()
 
-def new_courier():
-    '''Adds a new courier to the couriers list'''
-    new_courier = input("Please enter new courier's name or C to cancel: ")
-    if new_courier == 'C':
-        return couriers_menu()
-    else:
-        information.couriers_list.append(new_courier)
-        print(f'courier "{new_courier}" successfully added.')
-        return couriers_menu()
 
 def update_courier():
     '''Updates the name of an existing courier in the couriers list'''
