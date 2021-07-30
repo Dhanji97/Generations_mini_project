@@ -22,13 +22,7 @@ def main_menu():
     
     if main_menu_input == 0:
         save_to_csv.save_csv(information.list_of_products_dicts,'source/saved_information/products.csv', 'Prodcuts saved successfully')
-        
-        try:
-            with open('couriers.txt', 'w') as couriers_file:
-                for courier in information.couriers_list:
-                    couriers_file.write(courier + '\n')
-        except Exception as e:
-            print("File 'couriers.txt' could not be opened" + str(e))
+        save_to_csv.save_csv(information.list_of_couriers_dicts,'source/saved_information/couriers.csv', 'Couriers saved successfully')
         
         print('Thank you for visiting *app*')
         
