@@ -1,7 +1,7 @@
 from products_menu import products_menu
 from couriers_menu import couriers_menu
 from saved_information import information
-from orders_menu import Orders_menu
+from orders_menu import orders_menu
 from main_menu import save_to_csv
 
 def main_menu():
@@ -34,4 +34,4 @@ def main_menu():
         couriers_menu.couriers_menu()
         
     elif main_menu_input == 3:
-        Orders_menu.Orders_menu()
+        orders_menu.orders_menu()
