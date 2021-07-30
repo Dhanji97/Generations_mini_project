@@ -3,7 +3,7 @@ def update_courier(list_dict):
     for i, courier in enumerate(list_dict):
         print(i, courier)
     
-    courier_index = input('select courier\'s index to update or C to cancel: ')
+    courier_index = input('select the courier\'s index to update or C to cancel: ')
     if courier_index == 'C':
         return
     
@@ -15,11 +15,13 @@ def update_courier(list_dict):
     courier_index = int(courier_index)
     print(list_dict[courier_index])
     
-    updated_name = input('Please enter updated courier\'s name or press enter to skip: ')
+    updated_name = input('Please enter the updated courier\'s name or press enter to skip: ')
     if updated_name != '':
         list_dict[courier_index]['name'] = updated_name
+        print(f'courier\'s name changed to {updated_name}')
     
-    updated_number = input('Please enter courier\'s updated number or press enter to skip: ')
+    updated_number = input('Please enter the courier\'s updated number or press enter to skip: ')
     if updated_number != '':
         list_dict[courier_index]['number'] = updated_number
+        print(f'courier\'s number changed to {updated_number}')
     return
