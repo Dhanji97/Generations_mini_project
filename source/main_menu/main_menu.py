@@ -23,6 +23,7 @@ def main_menu():
     if main_menu_input == 0:
         save_to_csv.save_csv(information.list_of_products_dicts,'source/saved_information/products.csv', 'Prodcuts saved successfully')
         save_to_csv.save_csv(information.list_of_couriers_dicts,'source/saved_information/couriers.csv', 'Couriers saved successfully')
+        save_to_csv.save_csv(information.list_of_orders_dicts, 'source/saved_information/orders.csv', 'Orders saved successfully')
         
         print('Thank you for visiting *app*')
         
