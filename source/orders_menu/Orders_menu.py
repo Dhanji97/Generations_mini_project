@@ -1,5 +1,6 @@
 from main_menu import main_menu
 from saved_information import information
+from orders_menu.new_order import new_order
 
 def orders_menu():
     '''Runs the order menu in the UI'''
@@ -27,7 +28,8 @@ def orders_menu():
         orders_menu()
 
     elif orders_menu_input == 2:
-        new_order()
+        new_order(information.list_of_orders_dicts, information.list_of_products_dicts, information.list_of_couriers_dicts)
+        orders_menu()
     
     elif orders_menu_input == 3:
         update_order_status()
@@ -37,45 +39,6 @@ def orders_menu():
     
     elif orders_menu_input == 5:
         delete_order()
-
-def new_order():
-    '''Adds a new order to the list of orders'''
-    customer_name = input("Please enter your name or C to cancel: ")
-    customer_house_num = input("Please enter your house number or C to cancel: ")
-    customer_postcode = input("Please enter your postcode or C to cancel: ")
-    customer_address = customer_house_num + ', ' + customer_postcode
-    customer_phone_num = input("Please enter your contact number or C to cancel: ")
-    if customer_name == 'C' or customer_house_num == 'C' or customer_postcode == 'C' or customer_phone_num == 'C':
-        return orders_menu()
-    else:
-        for i, courier in enumerate(information.couriers_list):
-            print(i, courier)
-            
-    valid_courier_inputs = [str(i) for i in range(len(information.couriers_list))]
-    # C added to valid inputs to allow user to cancel selection and return to previous menu
-    valid_courier_inputs.append('C')
-    
-    courier_index = input('Please select a courier with its indicated number or C to cancel: ')
-    
-    if courier_index not in valid_courier_inputs:
-        print('Sorry that option was not recognized')
-        return new_order()
-    elif courier_index == 'C':
-        return orders_menu()
-    
-    courier_index = int(courier_index)
-    
-    order_dict =    {
-                    'Customer name': customer_name,
-                    'Customer address': customer_address,
-                    'Customer phone number': customer_phone_num,
-                    'Courier': courier_index,
-                    'Status': 'preparing'
-                    }
-    
-    information.orders_list.append(order_dict)
-    print(f'order successfully added.\n')
-    return orders_menu()
 
 def update_order_status():
     '''Updates the status of an order in the order's list'''
