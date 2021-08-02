@@ -12,9 +12,9 @@ Orders_list = [{
                     'Customer address': '2, EF3 4GH',
                     'Customer phone number': '07963852741',
                     'Courier': 1,
-                    'Status': 'Out for delivery'
+                    'Status': 'out for delivery'
                     }]
-Order_status_list = ['Preparing', 'Out for delivery']
+order_status_list = ['preparing', 'out for delivery']
 
 try:
     with open('source/saved_information/products.csv', 'r') as products_csv:

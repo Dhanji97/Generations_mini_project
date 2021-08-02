@@ -1,3 +1,2 @@
-Customer name,Customer address,Customer phone number,Courier,Status
-Dhanji,"1, AB1 2CD",07147258369,1,preparing
-Abbas,"2, EF3 4GH",07963852741,1,Out for delivery
+customer name,customer address,customer number,courier,status,products
+Customer_1,"1, road, AB1 CD2",07123456789,1,out for delivery,"[0, 1, 1, 2]"
