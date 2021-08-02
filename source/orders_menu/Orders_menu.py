@@ -2,7 +2,7 @@ from main_menu import main_menu
 from saved_information import information
 from orders_menu.new_order import new_order
 from orders_menu.update_status import update_status
-from orders_menu.update_order import update_order
+from orders_menu.update.update_order import update_order
 from orders_menu.delete_order import delete_order
 
 def orders_menu():

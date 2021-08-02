@@ -1,6 +1,6 @@
-from orders_menu.update_order_products import update_order_products
-from orders_menu.update_order_status import update_order_status
-from orders_menu.update_order_courier import update_order_courier
+from orders_menu.update.update_order_products import update_order_products
+from orders_menu.update.update_order_status import update_order_status
+from orders_menu.update.update_order_courier import update_order_courier
 
 
 def update_order(list_orders, list_products, list_couriers, status_list):
