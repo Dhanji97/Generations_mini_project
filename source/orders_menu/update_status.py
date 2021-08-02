@@ -25,7 +25,7 @@ def update_status(list_orders, status_list):
     valid_status_inputs = [str(i) for i in range(len(status_list))]
     if status_index not in valid_status_inputs:
         print('Sorry that option was not recognized')
-        return
+        update_status(list_orders, status_list)
     
     status_index = int(status_index)
     updated_status = status_list[status_index]
