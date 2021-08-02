@@ -1,8 +1,9 @@
-from orders_menu.update_order import update_order
-from orders_menu.update_status import update_status
 from main_menu import main_menu
 from saved_information import information
 from orders_menu.new_order import new_order
+from orders_menu.update_status import update_status
+from orders_menu.update_order import update_order
+from orders_menu.delete_order import delete_order
 
 def orders_menu():
     '''Runs the order menu in the UI'''
@@ -42,62 +43,5 @@ def orders_menu():
         orders_menu()
         
     elif orders_menu_input == 5:
-        delete_order()
-
-def delete_order():
-    '''deletes an order in the orders list'''
-    for i, order in enumerate(information.orders_list):
-        print(i, order)
-    
-    valid_delete_inputs = [str(i) for i in range(len(information.orders_list))]
-    # C added to valid inputs to allow user to cancel selection and return to previous menu
-    valid_delete_inputs.append('C') 
-    delete_index = input('select order number to delete or C to cancel: ')
-    if delete_index not in valid_delete_inputs:
-        print('Sorry that option was not recognized')
-        return delete_order()
-    elif delete_index == 'C':
-        return orders_menu()
-    
-    delete_index = int(delete_index)
-    delete_item = information.orders_list[delete_index]
-    information.orders_list.pop(delete_index)
-    print('The order was removed from orders list.')
-    return orders_menu()
-
-def update_order_courier_option(current_courier_option):
-    for i, courier in enumerate(information.couriers_list):
-        print(i, courier)
-    
-    valid_courier_inputs = [str(i) for i in range(len(information.couriers_list))]
-    # 'blank' added to valid inputs to allow user to skip selection and continue updating order
-    valid_courier_inputs.append('')
-    
-    courier_index = input('Please select a courier with its indicated number or press enter to skip: ')
-    
-    if courier_index not in valid_courier_inputs:
-        print('Sorry that option was not recognized')
-        return update_order_courier_option(current_courier_option)
-    elif courier_index == '':
-        return current_courier_option
-    else:
-        return int(courier_index)
-
-def update_order_status_option(current_status_option):
-    for i, status in enumerate(information.order_status_list):
-        print(i, status)
-    
-    valid_status_inputs = [str(i) for i in range(len(information.order_status_list))]
-    # 'blank' added to valid inputs to allow user to skip selection and continue updating order
-    valid_status_inputs.append('')
-    
-    status_index = input('Please select a status with its indicated number or press enter to skip: ')
-    
-    if status_index not in valid_status_inputs:
-        print('Sorry that option was not recognized')
-        return update_order_status_option(current_status_option)
-    elif status_index == '':
-        return current_status_option
-    else:
-        status_index = int(status_index)
-        return information.order_status_list[status_index]
+        delete_order(information.list_of_orders_dicts)
+        orders_menu()
