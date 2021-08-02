@@ -1,3 +1,4 @@
+from orders_menu.update_status import update_status
 from main_menu import main_menu
 from saved_information import information
 from orders_menu.new_order import new_order
@@ -32,50 +33,14 @@ def orders_menu():
         orders_menu()
     
     elif orders_menu_input == 3:
-        update_order_status()
+        update_status(information.list_of_orders_dicts, information.order_status_list)
+        orders_menu()
     
     elif orders_menu_input == 4:
         update_order()
     
     elif orders_menu_input == 5:
         delete_order()
-
-def update_order_status():
-    '''Updates the status of an order in the order's list'''
-    for i, order in enumerate(information.orders_list):
-        print(i, order)
-        
-    valid_order_inputs = [str(i) for i in range(len(information.orders_list))]
-    # C added to valid inputs to allow user to cancel selection and return to previous menu
-    valid_order_inputs.append('C')
-    
-    order_index = input('Please select which order\'s status to update or C to cancel: ')
-    if order_index not in valid_order_inputs:
-        print('Sorry that option was not recognized')
-        return update_order_status()
-    elif order_index == 'C':
-        return orders_menu()
-    order_index = int(order_index)
-    order_dict_update = information.orders_list[order_index]
-    
-    for i, status in enumerate(information.order_status_list):
-        print(i, status)
-
-    valid_status_inputs = [str(i) for i in range(len(information.order_status_list))]
-    # C added to valid inputs to allow user to cancel selection and return to previous menu
-    valid_status_inputs.append('C')
-    
-    status_index = input('Please select a status to update the order\'s status too or C to cancel: ')
-    if status_index not in valid_status_inputs:
-        print('Sorry that option was not recognized')
-        return update_order_status()
-    elif status_index == 'C':
-        return orders_menu()
-    status_index = int(status_index)
-    updated_status = information.order_status_list[status_index]
-    order_dict_update['status'] = updated_status
-    print(f'order\'s status successfully updated to {updated_status}')
-    return orders_menu()
 
 def update_order():
     '''updates the entires of an existing order in the order list'''
