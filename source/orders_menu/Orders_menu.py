@@ -1,3 +1,4 @@
+from orders_menu.update_order import update_order
 from orders_menu.update_status import update_status
 from main_menu import main_menu
 from saved_information import information
@@ -37,61 +38,11 @@ def orders_menu():
         orders_menu()
     
     elif orders_menu_input == 4:
-        update_order()
-    
+        update_order(information.list_of_orders_dicts, information.list_of_products_dicts, information.list_of_couriers_dicts, information.order_status_list)
+        orders_menu()
+        
     elif orders_menu_input == 5:
         delete_order()
-
-def update_order():
-    '''updates the entires of an existing order in the order list'''
-    for i, order in enumerate(information.orders_list):
-        print(i, order)
-    
-    valid_update_inputs = [str(i) for i in range(len(information.orders_list))]
-    # C added to valid inputs to allow user to cancel selection and return to previous menu
-    valid_update_inputs.append('C')
-    update_index = input('select order number to update or C to cancel: ')
-    if update_index not in valid_update_inputs:
-        print('Sorry that option was not recognized\n')
-        return update_order()
-    elif update_index == 'C':
-        return orders_menu()
-    
-    update_index = int(update_index)
-    order_dict_to_update = information.orders_list[update_index]
-    print(order_dict_to_update)
-    
-    update_customer_name = input('Update customer name, press enter to skip:\n')
-    if update_customer_name == '':
-        pass
-    else:
-        order_dict_to_update['Customer name'] = update_customer_name
-    
-    update_customer_house_number = input('Update customer house number, press enter to skip:\n')
-    update_customer_postcode = input('Update customer postcode, press enter to skip:\n')
-    original_address = order_dict_to_update['Customer address'].split(', ')
-    if update_customer_house_number == '':
-        update_customer_house_number = original_address[0]
-    if update_customer_postcode == '':
-        update_customer_postcode = original_address[1]
-    updated_address = update_customer_house_number + ', ' + update_customer_postcode
-    order_dict_to_update['Customer address'] = updated_address
-    
-    update_customer_phone_number = input('Update customer phone number, press enter to skip:\n')
-    if update_customer_phone_number == '':
-        pass
-    else:
-        order_dict_to_update['Customer phone number'] = update_customer_phone_number
-    
-    current_courier = order_dict_to_update['Courier']
-    updated_courier = update_order_courier_option(current_courier)
-    order_dict_to_update['Courier'] = updated_courier
-    
-    current_status = order_dict_to_update['Status']
-    updated_status = update_order_status_option(current_status)
-    order_dict_to_update['Status'] = updated_status
-    print(f'order updated too:\n {order_dict_to_update}\n')
-    return orders_menu()
 
 def delete_order():
     '''deletes an order in the orders list'''

@@ -1,2 +1,2 @@
 customer name,customer address,customer number,courier,status,products
-Customer_1,"1, road, AB1 CD2",07123456789,1,preparing,"[0, 0, 1, 2]"
+Customer_1,"1, road, AB1 CD2",07123456789,1,out for delivery,"[0, 1, 1, 2]"
