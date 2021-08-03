@@ -38,6 +38,6 @@ def products_menu():
     
     elif products_menu_input == 4:
         condition = delete_product(information.list_of_products_dicts)
-        while condition != 'pass':
+        while condition == 'fail' :
             condition = delete_product(information.list_of_products_dicts)
         products_menu()

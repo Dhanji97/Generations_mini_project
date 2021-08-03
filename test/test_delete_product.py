@@ -22,7 +22,7 @@ def test_delete_product_C(mock_input):
     mock_input.return_value = 'C'
     mock_list = [{'name': 'test'}]
     expected = delete_product(mock_list)
-    assert expected == None
+    assert expected == 'cancel'
 
 
 @patch('builtins.input')

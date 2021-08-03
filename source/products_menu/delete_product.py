@@ -4,7 +4,7 @@ def delete_product(list_dict):
     
     delete_index = input('select product number to delete or C to cancel: ')
     if delete_index == 'C':
-        return 'pass'
+        return 'cancel'
     
     valid_inputs = [str(i) for i in range(len(list_dict))]
     if delete_index not in valid_inputs:
